@@ -1,5 +1,5 @@
 -- input 2: prefix, mid
--- output: [{pid,pos},..]
+-- output: [{'pid':1,'pos':2},..]
 
 local prefix=KEYS[1]
 local mid=tostring(KEYS[2])
