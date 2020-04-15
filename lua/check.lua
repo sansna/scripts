@@ -45,7 +45,7 @@ if dur1 >= base1 and dur1 < max1 then
 	if math.min(w*inc11+v*inc01+base1, max1) <= dur1 then
 		ttl = redis.call('TTL', KEYS[1])
 		if ttl == -2 then
-			ttl = ARGV[1]
+			ttl = ARGV[16]
 		end
 		redis.call('SETEX', checkkey, ttl, 1)
 		return 1
@@ -53,7 +53,7 @@ if dur1 >= base1 and dur1 < max1 then
 elseif dur1 >= max1 then
 	ttl = redis.call('TTL', KEYS[1])
 	if ttl == -2 then
-		ttl = ARGV[1]
+		ttl = ARGV[16]
 	end
 	redis.call('SETEX', checkkey, ttl, 1)
 	return 1
@@ -79,7 +79,7 @@ if dur2 >= base2 and dur2 < max2 then
 	if math.min(w*inc12+v*inc02+base2, max2) <= dur2 then
 		ttl = redis.call('TTL', KEYS[2])
 		if ttl == -2 then
-			ttl = ARGV[2]
+			ttl = ARGV[17]
 		end
 		redis.call('SETEX', checkkey, ttl, 2)
 		return 2
@@ -87,7 +87,7 @@ if dur2 >= base2 and dur2 < max2 then
 elseif dur2 >= max2 then
 	ttl = redis.call('TTL', KEYS[2])
 	if ttl == -2 then
-		ttl = ARGV[2]
+		ttl = ARGV[17]
 	end
 	redis.call('SETEX', checkkey, ttl, 2)
 	return 2
@@ -113,7 +113,7 @@ if dur3 >= base3 and dur3 < max3 then
 	if math.min(w*inc13+v*inc03+base3, max3) <= dur3 then
 		ttl = redis.call('TTL', KEYS[3])
 		if ttl == -2 then
-			ttl = ARGV[3]
+			ttl = ARGV[18]
 		end
 		redis.call('SETEX', checkkey, ttl, 3)
 		return 3
@@ -121,7 +121,7 @@ if dur3 >= base3 and dur3 < max3 then
 elseif dur3 >= max3 then
 	ttl = redis.call('TTL', KEYS[3])
 	if ttl == -2 then
-		ttl = ARGV[3]
+		ttl = ARGV[18]
 	end
 	redis.call('SETEX', checkkey, ttl, 3)
 	return 3
