@@ -46,6 +46,8 @@ if dur1 >= base1 and dur1 < max1 then
 		ttl = redis.call('TTL', KEYS[1])
 		if ttl == -2 then
 			ttl = ARGV[16]
+		else
+			ttl = tonumber(ARGV[16])-(tonumber(ARGV[1])-tonumber(ttl))
 		end
 		redis.call('SETEX', checkkey, ttl, 1)
 		return 1
@@ -54,6 +56,8 @@ elseif dur1 >= max1 then
 	ttl = redis.call('TTL', KEYS[1])
 	if ttl == -2 then
 		ttl = ARGV[16]
+	else
+		ttl = tonumber(ARGV[16])-(tonumber(ARGV[1])-tonumber(ttl))
 	end
 	redis.call('SETEX', checkkey, ttl, 1)
 	return 1
@@ -80,6 +84,8 @@ if dur2 >= base2 and dur2 < max2 then
 		ttl = redis.call('TTL', KEYS[2])
 		if ttl == -2 then
 			ttl = ARGV[17]
+		else
+			ttl = tonumber(ARGV[17])-(tonumber(ARGV[2])-tonumber(ttl))
 		end
 		redis.call('SETEX', checkkey, ttl, 2)
 		return 2
@@ -88,6 +94,8 @@ elseif dur2 >= max2 then
 	ttl = redis.call('TTL', KEYS[2])
 	if ttl == -2 then
 		ttl = ARGV[17]
+	else
+		ttl = tonumber(ARGV[17])-(tonumber(ARGV[2])-tonumber(ttl))
 	end
 	redis.call('SETEX', checkkey, ttl, 2)
 	return 2
@@ -114,6 +122,8 @@ if dur3 >= base3 and dur3 < max3 then
 		ttl = redis.call('TTL', KEYS[3])
 		if ttl == -2 then
 			ttl = ARGV[18]
+		else
+			ttl = tonumber(ARGV[18])-(tonumber(ARGV[3])-tonumber(ttl))
 		end
 		redis.call('SETEX', checkkey, ttl, 3)
 		return 3
@@ -122,6 +132,8 @@ elseif dur3 >= max3 then
 	ttl = redis.call('TTL', KEYS[3])
 	if ttl == -2 then
 		ttl = ARGV[18]
+	else
+		ttl = tonumber(ARGV[18])-(tonumber(ARGV[3])-tonumber(ttl))
 	end
 	redis.call('SETEX', checkkey, ttl, 3)
 	return 3
