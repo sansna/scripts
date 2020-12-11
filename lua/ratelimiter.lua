@@ -15,6 +15,7 @@ local mp_ts = mp..'_mpts'
 local mp_cnt = mp..'_mpcnt'
 
 -- TODO: 对于用户、接口、用户接口的限制和消耗次数应分别设置
+-- TODO: 千万级用户，30个接口的服务用一个9G的redis应该能抗下
 -- 当前时间戳（微秒）
 local ts = tonumber(ARGV[1])
 -- 一个令牌释放需要消耗的微秒数(接口级别/用户级别)
